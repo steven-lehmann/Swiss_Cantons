@@ -1,5 +1,6 @@
 package Cantons;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -17,7 +18,7 @@ public class CantonView {
 	//elements in the GUI
 	protected ChoiceBox<String> cantons;
 	protected Button submitButton;
-	protected final Image ALLCANTONS = new Image("/cantons.png"); //TODO add Picture
+	protected final Image ALLCANTONS = new Image("/cantons.png"); //TODO add new Picture
 	protected ImageView cantonView;
 	
 
@@ -33,24 +34,26 @@ public class CantonView {
 		this.cantonView = new ImageView(ALLCANTONS);
 		
 		cantons.getItems().addAll("Basel", "Bern", "Zürich");
+		cantons.setValue("Bern");
+		
 		
 		center.getChildren().addAll(this.cantons, this.submitButton);
 		
 		root.setTop(cantonView);
 		root.setCenter(center);
 		
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(root, 1200, 800);
 		//TODO Style sheet 
 		stage.setScene(scene);
 		stage.setTitle("Kanton App");
 		
 		
-		
-		
+		//Some stylings 
+		center.setAlignment(Pos.CENTER);
+		cantonView.setFitHeight(481);
+		cantonView.setFitWidth(720);
+		root.setAlignment(cantonView, Pos.CENTER);
 	}
-
-	
-	
 
 	public void start() {
 		stage.show();
