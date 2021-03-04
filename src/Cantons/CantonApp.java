@@ -14,6 +14,8 @@ public class CantonApp extends Application {
 		model = new CantonModel();
 		view = new CantonView(primaryStage, model);
 		controller = new CantonController(model, view);
+		
+		view.start();
 
 	}
 
