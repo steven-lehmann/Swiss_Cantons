@@ -7,10 +7,12 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -21,13 +23,17 @@ public class CantonView {
 	
 	//elements in the GUI
 	protected ChoiceBox<String> cantons;
-	protected Button createButton, displayButton;
+	protected Button createButton, displayButton, editButton, deletButton, submitButton;
 	//protected final Image ALLCANTONS = new Image("/cantons.png");
 	//protected ImageView cantonView;
 	protected MenuBar menus = new MenuBar();
 	protected Menu menuHome = new Menu("Home");
 	
-	protected Label lbHeading, lbTeaser, lbNewCanton, lbViewCanton;
+	protected Label lbHeading, lbTeaser, lbNewCanton, lbViewCanton, lbName, lbSize, lbPopulation,
+			lbAcronym, lbYear, lbLanguage, lbMainPlace, lbNeighbor, lbLink, lbAttractions;
+	
+	protected TextField txtName, txtSize, txtPopulation, txtAcronym, txtYear, 
+			txtLanguage, txtMainPlace, txtNeighbor, txtLink, txtAttractions;
 	
 
 	public CantonView(Stage stage, CantonModel model) {
@@ -68,6 +74,21 @@ public class CantonView {
 		center.getChildren().addAll(this.lbHeading, this.lbTeaser, buttonGrid);
 		
 		root.setCenter(center);
+		
+		
+		// Kanton View
+		
+		BorderPane cantonView = new BorderPane();
+		HBox middle = new HBox();
+		VBox left = new VBox();
+		VBox right = new VBox();
+		GridPane cantonViewLeft = new GridPane();
+		GridPane cantonViewRight = new GridPane();
+		
+		
+		
+		
+		//Set Scene
 		
 		Scene scene = new Scene(root, 800, 700);
 		scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
