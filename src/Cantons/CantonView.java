@@ -21,8 +21,8 @@ public class CantonView {
 	final private Stage stage;
 	
 	//elements in the GUI
-	protected ChoiceBox<String> cantons;
-	protected Button createButton, displayButton, editButton, deletButton, submitButton;
+	protected ChoiceBox<String> cantonsDisplay, cantonsEdit, cantonsDelete;
+	protected Button createButton, displayButton, editButton, deleteButton, submitButton;
 	
 	//protected final Image ALLCANTONS = new Image("/cantons.png");
 	//protected ImageView cantonView;
@@ -30,8 +30,9 @@ public class CantonView {
 	protected MenuBar menus = new MenuBar();
 	protected Menu menuHome = new Menu("Home");
 	
-	protected Label lbHeading, lbTeaser, lbNewCanton, lbViewCanton, lbName, lbSize, lbPopulation,
-			lbAcronym, lbYear, lbLanguage, lbMainPlace, lbNeighbor, lbLink, lbAttractions;
+	protected Label lbHeading, lbTeaser, lbNewCanton, lbViewCanton, lbUpdateCanton,
+			lbDeleteCanton, lbName, lbSize, lbPopulation, lbAcronym, lbYear, lbLanguage,
+			lbMainPlace, lbNeighbor, lbLink, lbAttractions;
 	
 	protected TextField txtName, txtSize, txtPopulation, txtAcronym, txtYear, 
 			txtLanguage, txtMainPlace, txtNeighbor, txtLink, txtAttractions;
@@ -53,9 +54,13 @@ public class CantonView {
 		VBox center = new VBox();
 		GridPane buttonGrid = new GridPane();
 				
-		this.cantons = new ChoiceBox<String>();
+		this.cantonsDisplay = new ChoiceBox<String>();
+		this.cantonsEdit= new ChoiceBox<String>();
+		this.cantonsDelete = new ChoiceBox<String>();
 		this.createButton = new Button("Neu");
 		this.displayButton = new Button("Anzeigen");
+		this.editButton = new Button("Bearbeiten");
+		this.deleteButton = new Button("Löschen");
 		//this.cantonView = new ImageView(ALLCANTONS);
 				
 				
@@ -63,6 +68,8 @@ public class CantonView {
 		this.lbTeaser = new Label("Dies ist eine Übersicht der Kanton in der Schweiz ");
 		this.lbNewCanton = new Label("Kanton hinzufügen:");
 		this.lbViewCanton = new Label("Kanton anzeigen:");
+		this.lbUpdateCanton = new Label("Kanton bearbeiten: ");
+		this.lbDeleteCanton = new Label("Kanton löschen: ");
 				
 		this.lbHeading.getStyleClass().add("lbHeading");
 		this.lbTeaser.getStyleClass().add("lbTeaser");
@@ -70,15 +77,21 @@ public class CantonView {
 		root.setTop(menus);
 		menus.getMenus().add(menuHome);
 				
-		cantons.getItems().addAll("Basel", "Bern", "Zürich");
-		cantons.setValue("Bern");
-				
+		this.cantonsDisplay.getItems().addAll("Basel", "Bern", "Zürich");
+		this.cantonsEdit.getItems().addAll("Basel", "Bern", "Zürich");
+		this.cantonsDelete.getItems().addAll("Basel", "Bern", "Zürich");
 				
 		buttonGrid.add(this.lbNewCanton, 0, 0);
 		buttonGrid.add(this.createButton, 1, 0);
 		buttonGrid.add(this.lbViewCanton, 0, 1);
-		buttonGrid.add(this.cantons, 1, 1);
+		buttonGrid.add(this.cantonsDisplay, 1, 1);
 		buttonGrid.add(this.displayButton, 2, 1);
+		buttonGrid.add(this.lbUpdateCanton, 0, 2);
+		buttonGrid.add(this.cantonsEdit, 1, 2);
+		buttonGrid.add(this.editButton, 2, 2);
+		buttonGrid.add(this.lbDeleteCanton, 0, 3);
+		buttonGrid.add(this.cantonsDelete, 1, 3);
+		buttonGrid.add(this.deleteButton, 2, 3);
 			
 		buttonGrid.getStyleClass().add("buttonGrid");
 				
