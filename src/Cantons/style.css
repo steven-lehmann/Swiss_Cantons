@@ -1,10 +1,11 @@
-.root{
+.center{
 	-fx-background-image: url("/canton_transparent.PNG");
 	-fx-background-position: center;
 	-fx-background-size: contain;
 	-fx-background-repeat: no-repeat;
 	-fx-background-color: white;
 	-fx-font-family: Georgia, Verdana, sans-serif;
+	-fx-alignment: center;
 }
 
 
@@ -26,6 +27,32 @@
 	-fx-padding: 20;
 }
 
-.center{
+.cantonView{
+	-fx-background-color: floralwhite;
+
+}
+
+.middle{
+	-fx-spacing: 15;
+}
+
+.left{
+	-fx-padding: 30;
+}
+
+.cantonViewLeft{
+	-fx-hgap: 20;
+	-fx-vgap: 30;
 	-fx-alignment: center;
 }
+
+.right{
+	-fx-padding: 30;
+}
+
+.cantonViewRight{
+	-fx-hgap: 50;
+	-fx-vgap: 30;
+	-fx-alignment: center;
+}
+
