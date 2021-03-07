@@ -59,11 +59,14 @@ public class CantonView {
 		//this.cantonView = new ImageView(ALLCANTONS);
 				
 				
-		lbHeading = new Label("Willkommen");
-		lbTeaser = new Label("Dies ist eine Übersicht der Kanton in der Schweiz ");
-		lbNewCanton = new Label("Kanton hinzufügen:");
-		lbViewCanton = new Label("Kanton anzeigen:");
+		this.lbHeading = new Label("Willkommen");
+		this.lbTeaser = new Label("Dies ist eine Übersicht der Kanton in der Schweiz ");
+		this.lbNewCanton = new Label("Kanton hinzufügen:");
+		this.lbViewCanton = new Label("Kanton anzeigen:");
 				
+		this.lbHeading.getStyleClass().add("lbHeading");
+		this.lbTeaser.getStyleClass().add("lbTeaser");
+		
 		root.setTop(menus);
 		menus.getMenus().add(menuHome);
 				
@@ -77,13 +80,15 @@ public class CantonView {
 		buttonGrid.add(this.cantons, 1, 1);
 		buttonGrid.add(this.displayButton, 2, 1);
 			
+		buttonGrid.getStyleClass().add("buttonGrid");
 				
 		center.getChildren().addAll(this.lbHeading, this.lbTeaser, buttonGrid);
-				
+			
+		center.getStyleClass().add("center");
 				
 		root.setCenter(center);
 		
-		
+		root.getStyleClass().add("root");
 		
 		// Kanton View
 		
@@ -165,7 +170,7 @@ public class CantonView {
 		
 		//Set Scene
 		
-		Scene scene = new Scene(root, 1000, 800);
+		Scene scene = new Scene(root, 800, 700);
 		scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		stage.setScene(scene);
 		stage.setTitle("Kanton App");

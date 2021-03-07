@@ -1,0 +1,28 @@
+.root{
+	-fx-background-image: url("/cantons.png");
+	-fx-background-position: center;
+	-fx-background-size: contain;
+	-fx-background-repeat: no-repeat;
+	-fx-background-color: white;
+}
+
+
+.buttonGrid{
+	-fx-hgap: 20;
+	-fx-vgap: 15;
+	-fx-alignment: center;
+	-fx-font-size: 14px;
+	-fx-padding: 20;
+}
+
+.lbHeading{
+	-fx-font-size: 36px;
+}
+
+.lbTeaser{
+	-fx-font-size: 28px;
+}
+
+.center{
+	-fx-alignment: center;
+}
