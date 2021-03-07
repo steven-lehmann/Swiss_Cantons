@@ -1,9 +1,10 @@
 .root{
-	-fx-background-image: url("/cantons.png");
+	-fx-background-image: url("/canton_transparent.PNG");
 	-fx-background-position: center;
 	-fx-background-size: contain;
 	-fx-background-repeat: no-repeat;
 	-fx-background-color: white;
+	-fx-font-family: Georgia, Verdana, sans-serif;
 }
 
 
@@ -13,14 +14,16 @@
 	-fx-alignment: center;
 	-fx-font-size: 14px;
 	-fx-padding: 20;
+	-fx-font-weight: bold;
 }
 
 .lbHeading{
-	-fx-font-size: 36px;
+	-fx-font-size: 40px;
 }
 
 .lbTeaser{
-	-fx-font-size: 28px;
+	-fx-font-size: 30px;
+	-fx-padding: 20;
 }
 
 .center{
