@@ -17,10 +17,5 @@ public class CantonModel {
 	public void deleteCanton() {
 		
 	}
-	
-	// zum Test eingefügt
-	public void changeCanton() {
-		
-	}
 
 }
