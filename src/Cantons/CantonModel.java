@@ -18,6 +18,11 @@ public class CantonModel {
 		
 	}
 	
+	// zum Test eingefügt
+	public void changeCanton() {
+		
+	}
+	
 	
 
 }
