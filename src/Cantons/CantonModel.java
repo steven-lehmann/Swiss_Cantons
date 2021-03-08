@@ -22,6 +22,5 @@ public class CantonModel {
 	public void changeCanton() {
 		
 	}
-	
 
 }
