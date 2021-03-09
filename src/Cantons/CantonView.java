@@ -22,7 +22,7 @@ public class CantonView {
 	final private Stage stage;
 	
 	//elements in the GUI
-	protected ChoiceBox<String> cantonsDisplay, cantonsEdit, cantonsDelete;
+	protected ChoiceBox<Canton.CantonsSwiss> cantonsDisplay, cantonsEdit, cantonsDelete;
 	protected Button createButton, displayButton, editButton, deleteButton, submitButton;
 		
 	protected MenuBar menus = new MenuBar();
@@ -43,20 +43,23 @@ public class CantonView {
 	protected final Image BLCARD = new Image("/BL_Karte.png");
 	protected ImageView cardBLView;
 	
-
+	//View Main and Canton 
+	protected BorderPane root;
+	protected BorderPane cantonView; 
+	
 	public CantonView(Stage stage, CantonModel model) {
 		this.model = model;
 		this.stage = stage;
 		
 		//Home View
 		
-		BorderPane root = new BorderPane();
+		root = new BorderPane();
 		VBox center = new VBox();
 		GridPane buttonGrid = new GridPane();
 				
-		this.cantonsDisplay = new ChoiceBox<String>();
-		this.cantonsEdit= new ChoiceBox<String>();
-		this.cantonsDelete = new ChoiceBox<String>();
+		this.cantonsDisplay = new ChoiceBox<Canton.CantonsSwiss>();
+		this.cantonsEdit= new ChoiceBox<Canton.CantonsSwiss>();
+		this.cantonsDelete = new ChoiceBox<Canton.CantonsSwiss>();
 		this.createButton = new Button("Neu");
 		this.displayButton = new Button("Anzeigen");
 		this.editButton = new Button("Bearbeiten");
@@ -77,10 +80,15 @@ public class CantonView {
 		
 		root.setTop(menus);
 		menus.getMenus().add(menuHome);
-				
-		this.cantonsDisplay.getItems().addAll("Basel", "Bern", "Zürich");
-		this.cantonsEdit.getItems().addAll("Basel", "Bern", "Zürich");
-		this.cantonsDelete.getItems().addAll("Basel", "Bern", "Zürich");
+		
+		//Zeigt Canone von Enum an
+		
+		for(Canton.CantonsSwiss canton : Canton.CantonsSwiss.values()) {
+			this.cantonsDisplay.getItems().add(canton);
+			this.cantonsEdit.getItems().add(canton);
+			this.cantonsDelete.getItems().add(canton);
+	
+		}
 				
 		buttonGrid.add(this.lbNewCanton, 0, 0);
 		buttonGrid.add(this.createButton, 1, 0);
@@ -106,7 +114,7 @@ public class CantonView {
 		
 		// Kanton View
 		
-		BorderPane cantonView = new BorderPane();
+		cantonView = new BorderPane();
 		HBox middle = new HBox();
 		VBox left = new VBox();
 		VBox right = new VBox();
@@ -218,9 +226,7 @@ public class CantonView {
 		stage.show();
 		
 		
-	}
-
-		
+	}	
 	
 
 }
