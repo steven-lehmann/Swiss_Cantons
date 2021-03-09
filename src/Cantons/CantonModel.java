@@ -29,9 +29,4 @@ public class CantonModel {
 
 	}
 	
-	public void deleteCanton() {
-	
-	}
-	
-
 }
