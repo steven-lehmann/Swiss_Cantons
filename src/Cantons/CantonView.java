@@ -199,7 +199,7 @@ public class CantonView {
 		
 		//Set Scene
 		
-		Scene scene = new Scene(cantonView);
+		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		stage.setScene(scene);
 		stage.setTitle("Kanton App");
