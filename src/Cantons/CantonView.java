@@ -22,11 +22,13 @@ public class CantonView {
 	final private Stage stage;
 	
 	//elements in the GUI
-	protected ChoiceBox<String> cantonsDisplay;
+	protected ChoiceBox<Canton.CantonsSwiss> cantonsDisplay;
 	protected Button createButton, displayButton, editButton, deleteButton;
 		
 	protected MenuBar menus = new MenuBar();
 	protected Menu menuHome = new Menu("Home");
+	
+	protected BorderPane root, cantonView;
 	
 	protected Label lbHeading, lbTeaser, lbNewCanton, lbViewCanton, lbUpdateCanton,
 			lbDeleteCanton, lbName, lbSize, lbPopulation, lbAcronym, lbYear, lbLanguage,
@@ -50,11 +52,11 @@ public class CantonView {
 		
 		//Home View
 		
-		BorderPane root = new BorderPane();
+		root = new BorderPane();
 		VBox center = new VBox();
 		GridPane buttonGrid = new GridPane();
 				
-		this.cantonsDisplay = new ChoiceBox<String>();
+		this.cantonsDisplay = new ChoiceBox<Canton.CantonsSwiss>();
 
 		this.createButton = new Button("Neu");
 		this.displayButton = new Button("Anzeigen");
@@ -73,7 +75,7 @@ public class CantonView {
 		root.setTop(menus);
 		menus.getMenus().add(menuHome);
 				
-		this.cantonsDisplay.getItems().addAll("Basel", "Bern", "Zürich");
+		this.cantonsDisplay.getItems().addAll(Canton.CantonsSwiss.values());
 
 				
 		buttonGrid.add(this.lbNewCanton, 0, 0);
@@ -95,7 +97,7 @@ public class CantonView {
 		
 		// Kanton View
 		
-		BorderPane cantonView = new BorderPane();
+		cantonView = new BorderPane();
 		HBox middle = new HBox();
 		VBox left = new VBox();
 		VBox right = new VBox();
@@ -189,7 +191,7 @@ public class CantonView {
 		
 		//Set Scene
 		
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(cantonView);
 		scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		stage.setScene(scene);
 		stage.setTitle("Kanton App");
