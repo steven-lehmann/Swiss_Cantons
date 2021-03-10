@@ -16,11 +16,11 @@ public class CantonController {
 		
 		//Bearbeiten
 		view.editButton.setOnAction(this::edit);
-		view.cantonsEdit.setOnAction(this::edit);
+		//view.cantonsEdit.setOnAction(this::edit);
 		
 		//Löschen
 		view.deleteButton.setOnAction(this::delete);
-		view.cantonsDelete.setOnAction(this::delete);
+		//view.cantonsDelete.setOnAction(this::delete);
 		
 		
 		
