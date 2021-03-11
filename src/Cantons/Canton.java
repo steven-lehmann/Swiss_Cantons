@@ -2,14 +2,6 @@ package Cantons;
 
 public class Canton {
 	
-	public enum CantonsSwiss{Aargau, AppenzellInnerhoden, 
-		BaselLandschaft, BaselStadt, Bern, Freiburg, 
-		Genf, Glarus, Graubünden,
-		Jura, Luzern, Neuenburg, 
-		Nidwalden, Obwalden, StGallen, 
-		Schaffhausen, Schwyz, Solothurn, 
-		Tessin, Thurgau, Uri, Waadt, 
-		Wallis, Zürich, Zug};
 	public enum acronym{AG, AR, AI, BL, 
 		BS, BE, FR, GE, 
 		GL, GR, JU, LU, 
@@ -43,7 +35,6 @@ public class Canton {
 		this.language = language;
 		this.population = population;
 		this.year = year;
-		
 		
 		
 	}

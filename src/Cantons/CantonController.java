@@ -1,6 +1,8 @@
 package Cantons;
 
 import javafx.event.ActionEvent;
+import javafx.scene.Scene;
+
 
 public class CantonController {
 	
@@ -12,7 +14,9 @@ public class CantonController {
 		//Anzeigen
 		
 		view.displayButton.setOnAction(this::display);
-		view.cantonsDisplay.setOnAction(this::display);
+		
+		// Hinzufügen
+		view.creatButton.setOnAction(this::creat);
 		
 		//Bearbeiten
 		view.editButton.setOnAction(this::edit);
@@ -20,23 +24,32 @@ public class CantonController {
 		
 		//Löschen
 		view.deleteButton.setOnAction(this::delete);
-		//view.cantonsDelete.setOnAction(this::delete);
-		
+	
+		view.back.setOnAction(this::home);
 		
 		
 	
+	
+	}
+	
+	public void creat(ActionEvent e) {
+		model.creatCanton();
 	}
 	
 	public void display(ActionEvent e) {
-		System.out.println("Test2");
+		CantonView.changeView();
+		model.displayCanton();
 	}
 	
 	public void edit(ActionEvent e) {
-		System.out.println("Test2");
-		
+		model.editCanton();
 	}
 	public void delete(ActionEvent e) {
-		System.out.println("Test3");
+		model.deletCanton();
+	}
+	
+	public void home(ActionEvent e) {
+		CantonView.backHome();
 	}
 	
 

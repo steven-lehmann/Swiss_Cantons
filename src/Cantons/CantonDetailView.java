@@ -25,7 +25,7 @@ public class CantonDetailView {
 	final private Stage stage;
 	
 	//elements in the GUI
-	protected ChoiceBox<Canton.CantonsSwiss> cantonsDisplay;
+	protected ChoiceBox<CantonsSwiss> cantonsDisplay;
 	protected Button displayButton, editButton, deleteButton, submitButton;
 		
 	protected MenuBar menus = new MenuBar();

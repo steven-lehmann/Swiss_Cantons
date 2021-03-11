@@ -6,6 +6,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -19,14 +20,15 @@ import javafx.stage.Stage;
 public class CantonView {
 	
 	final private CantonModel model;
-	final private Stage stage;
+	protected static Stage stage;
 	
 	//elements in the GUI
-	protected ChoiceBox<Canton.CantonsSwiss> cantonsDisplay;
-	protected Button createButton, displayButton, editButton, deleteButton;
+	protected ChoiceBox<CantonsSwiss> cantonsDisplay;
+	protected Button creatButton, displayButton, editButton, deleteButton;
 		
 	protected MenuBar menus = new MenuBar();
-	protected Menu menuHome = new Menu("Home");
+	protected Menu menuHome = new Menu("Optionen");
+	protected MenuItem back = new Menu("Home");
 	
 	protected BorderPane root, cantonView;
 	
@@ -45,6 +47,9 @@ public class CantonView {
 	protected final Image BLCARD = new Image("/BL_Karte.png");
 	protected ImageView cardBLView;
 	
+	protected static Scene scene1;
+	protected static Scene scene2;
+	
 
 	public CantonView(Stage stage, CantonModel model) {
 		this.model = model;
@@ -56,16 +61,16 @@ public class CantonView {
 		VBox center = new VBox();
 		GridPane buttonGrid = new GridPane();
 				
-		this.cantonsDisplay = new ChoiceBox<Canton.CantonsSwiss>();
+		this.cantonsDisplay = new ChoiceBox<CantonsSwiss>();
 
-		this.createButton = new Button("Neu");
+		this.creatButton = new Button("Neu");
 		this.displayButton = new Button("Anzeigen");
 		this.editButton = new Button("Bearbeiten");
 		this.deleteButton = new Button("Löschen");
 				
 				
 		this.lbHeading = new Label("Willkommen");
-		this.lbTeaser = new Label("Dies ist eine Übersicht der Kanton in der Schweiz ");
+		this.lbTeaser = new Label("Dies ist eine Übersicht der Kantone in der Schweiz ");
 		this.lbNewCanton = new Label("Kanton hinzufügen:");
 		this.lbViewCanton = new Label("Kanton anzeigen:");
 				
@@ -74,12 +79,13 @@ public class CantonView {
 		
 		root.setTop(menus);
 		menus.getMenus().add(menuHome);
+		menuHome.getItems().add(back);
 				
-		this.cantonsDisplay.getItems().addAll(Canton.CantonsSwiss.values());
+		this.cantonsDisplay.getItems().addAll(CantonsSwiss.values());
 
 				
 		buttonGrid.add(this.lbNewCanton, 0, 0);
-		buttonGrid.add(this.createButton, 1, 0);
+		buttonGrid.add(this.creatButton, 1, 0);
 		buttonGrid.add(this.lbViewCanton, 0, 1);
 		buttonGrid.add(this.cantonsDisplay, 1, 1);
 		buttonGrid.add(this.displayButton, 2, 1);
@@ -191,12 +197,13 @@ public class CantonView {
 		
 		//Set Scene
 		
-		Scene scene = new Scene(cantonView);
-		scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-		stage.setScene(scene);
+		scene1 = new Scene(root);
+		scene1.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+		stage.setScene(scene1);
 		stage.setTitle("Kanton App");
 		
-		//Style Images
+		scene2 = new Scene(cantonView);
+		scene2.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		
 		this.cardBLView.setFitHeight(300);
 		this.cardBLView.setFitWidth(450);
@@ -209,7 +216,18 @@ public class CantonView {
 	public void start() {
 		stage.show();
 		
+}
+	
+	public static void changeView() {
+		stage.setScene(scene2);
+		stage.show();
 		
+		
+	}
+
+	public static void backHome() {
+		stage.setScene(scene1);
+		stage.show();
 	}
 
 		
