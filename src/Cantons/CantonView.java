@@ -4,9 +4,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
@@ -26,10 +23,6 @@ public class CantonView {
 	//elements in the GUI
 	protected ChoiceBox<CantonsSwiss> cantonsDisplay;
 	protected Button creatButton, displayButton, editButton, deleteButton, homeButton;
-		
-	//protected MenuBar menus = new MenuBar();
-	//protected Menu menuHome = new Menu("Optionen");
-	//protected MenuItem back = new Menu("Home");
 	
 	protected BorderPane root, cantonView;
 	
@@ -76,9 +69,6 @@ public class CantonView {
 		this.lbHeading.getStyleClass().add("lbHeading");
 		this.lbTeaser.getStyleClass().add("lbTeaser");
 		
-		//root.setTop(this.homeButton);
-		//menus.getMenus().add(menuHome);
-		//menuHome.getItems().add(back);
 				
 		this.cantonsDisplay.getItems().addAll(CantonsSwiss.values());
 
