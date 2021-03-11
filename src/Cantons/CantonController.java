@@ -33,19 +33,19 @@ public class CantonController {
 	}
 	
 	public void creat(ActionEvent e) {
-		model.creatCanton();
+		//model.creatCanton();
 	}
 	
 	public void display(ActionEvent e) {
 		CantonView.changeView();
-		model.displayCanton();
+		//model.displayCanton();
 	}
 	
 	public void edit(ActionEvent e) {
-		model.editCanton();
+		//model.editCanton();
 	}
 	public void delete(ActionEvent e) {
-		model.deletCanton();
+		//model.deletCanton();
 	}
 	
 	public void home(ActionEvent e) {
