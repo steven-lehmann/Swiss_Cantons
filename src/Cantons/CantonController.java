@@ -25,7 +25,7 @@ public class CantonController {
 		//Löschen
 		view.deleteButton.setOnAction(this::delete);
 	
-		view.back.setOnAction(this::home);
+		view.homeButton.setOnAction(this::home);
 		
 		
 	

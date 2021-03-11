@@ -9,6 +9,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -26,9 +27,9 @@ public class CantonView {
 	protected ChoiceBox<CantonsSwiss> cantonsDisplay;
 	protected Button creatButton, displayButton, editButton, deleteButton, homeButton;
 		
-	protected MenuBar menus = new MenuBar();
-	protected Menu menuHome = new Menu("Optionen");
-	protected MenuItem back = new Menu("Home");
+	//protected MenuBar menus = new MenuBar();
+	//protected Menu menuHome = new Menu("Optionen");
+	//protected MenuItem back = new Menu("Home");
 	
 	protected BorderPane root, cantonView;
 	
@@ -75,12 +76,13 @@ public class CantonView {
 		this.lbHeading.getStyleClass().add("lbHeading");
 		this.lbTeaser.getStyleClass().add("lbTeaser");
 		
-		root.setTop(menus);
-		menus.getMenus().add(menuHome);
-		menuHome.getItems().add(back);
+		//root.setTop(this.homeButton);
+		//menus.getMenus().add(menuHome);
+		//menuHome.getItems().add(back);
 				
 		this.cantonsDisplay.getItems().addAll(CantonsSwiss.values());
 
+		this.cantonsDisplay.getStyleClass().add("choiceBox");
 				
 		buttonGrid.add(this.lbNewCanton, 0, 0);
 		buttonGrid.add(this.creatButton, 1, 0);
@@ -90,6 +92,8 @@ public class CantonView {
 
 			
 		buttonGrid.getStyleClass().add("buttonGrid");
+		this.creatButton.getStyleClass().add("buttonCanton");
+		this.displayButton.getStyleClass().add("buttonCanton");
 				
 		center.getChildren().addAll(this.lbHeading, this.lbTeaser, buttonGrid);
 			
@@ -107,6 +111,10 @@ public class CantonView {
 		VBox right = new VBox();
 		GridPane cantonViewLeft = new GridPane();
 		GridPane cantonViewRight = new GridPane();
+		
+		ToolBar toolbar = new ToolBar();
+		
+		toolbar.getStyleClass().add("toolbar");
 		
 		cantonView.getStyleClass().add("cantonView");
 				
@@ -129,6 +137,11 @@ public class CantonView {
 		this.editButton = new Button("Bearbeiten");
 		this.deleteButton = new Button("Löschen");
 		this.homeButton = new Button("Home");
+		
+		this.homeButton.getStyleClass().add("buttonCanton");
+		this.editButton.getStyleClass().add("buttonCanton");
+		this.deleteButton.getStyleClass().add("buttonCanton");
+		
 		
 		cantonViewLeft.add(this.lbName, 0, 0);
 		cantonViewLeft.add(this.txtName, 1, 0);
@@ -175,8 +188,8 @@ public class CantonView {
 		cantonViewRight.add(this.txtaNeighbor, 1, 7);
 		cantonViewRight.add(this.lbLink, 0, 8);
 		cantonViewRight.add(this.txtLink, 1, 8);
-		cantonViewRight.add(this.editButton, 1, 10);
-		cantonViewRight.add(this.deleteButton, 0, 10);
+		//cantonViewRight.add(this.editButton, 1, 10);
+		//cantonViewRight.add(this.deleteButton, 0, 10);
 		
 		right.getChildren().add(cantonViewRight);
 		
@@ -192,13 +205,14 @@ public class CantonView {
 		
 		//BorderPane füllen
 		
-		cantonView.setTop(menus);
+		toolbar.getItems().addAll(this.homeButton, this.editButton, this.deleteButton);
+		
+		cantonView.setTop(toolbar);
 		cantonView.setCenter(middle);
-
 		
 		//Set Scene
 		
-		scene1 = new Scene(root);
+		scene1 = new Scene(root, 1400, 850);
 		scene1.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		stage.setScene(scene1);
 		stage.setTitle("Kanton App");
@@ -209,8 +223,8 @@ public class CantonView {
 		this.cardBLView.setFitHeight(300);
 		this.cardBLView.setFitWidth(450);
 			
-		this.cantonBLView.setFitHeight(200);
-		this.cantonBLView.setFitWidth(150);
+		this.cantonBLView.setFitHeight(150);
+		this.cantonBLView.setFitWidth(120);
 		
 	}
 

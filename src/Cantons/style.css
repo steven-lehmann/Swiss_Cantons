@@ -28,12 +28,13 @@
 }
 
 .cantonView{
-	-fx-background-color: floralwhite;
-
+	-fx-background-color: white;
+	-fx-font-family: Georgia, Verdana, sans-serif;
 }
 
 .middle{
 	-fx-spacing: 15;
+	-fx-font-size: 12px;
 }
 
 .left{
@@ -56,3 +57,31 @@
 	-fx-alignment: center;
 }
 
+
+.buttonCanton{
+	 -fx-background-color: 
+		 	#000000,
+	        linear-gradient(#7ebcea, #2f4b8f),
+	        linear-gradient(#426ab7, #263e75),
+	        linear-gradient(#395cab, #223768);
+	    -fx-background-insets: 0,1,2,3;
+	    -fx-background-radius: 3,2,2,2;
+	    -fx-padding: 10 30 10 30;
+	    -fx-text-fill: white;
+	    -fx-font-size: 12px;
+}
+
+.toolbar{
+	 -fx-background-color: 
+		   #000000,
+	        linear-gradient(#7ebcea, #2f4b8f),
+	        linear-gradient(#426ab7, #263e75),
+	        linear-gradient(#395cab, #223768);
+}
+
+
+.choiceBox{
+	-fx-padding: 5;
+	-fx-font-size: 12px;
+	-fx-pref-width: 120px;
+}
