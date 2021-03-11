@@ -24,7 +24,7 @@ public class CantonView {
 	
 	//elements in the GUI
 	protected ChoiceBox<CantonsSwiss> cantonsDisplay;
-	protected Button creatButton, displayButton, editButton, deleteButton;
+	protected Button creatButton, displayButton, editButton, deleteButton, homeButton;
 		
 	protected MenuBar menus = new MenuBar();
 	protected Menu menuHome = new Menu("Optionen");
@@ -65,9 +65,7 @@ public class CantonView {
 
 		this.creatButton = new Button("Neu");
 		this.displayButton = new Button("Anzeigen");
-		this.editButton = new Button("Bearbeiten");
-		this.deleteButton = new Button("Löschen");
-				
+			
 				
 		this.lbHeading = new Label("Willkommen");
 		this.lbTeaser = new Label("Dies ist eine Übersicht der Kantone in der Schweiz ");
@@ -128,6 +126,9 @@ public class CantonView {
 		
 		this.cardBLView = new ImageView(BLCARD);
 		
+		this.editButton = new Button("Bearbeiten");
+		this.deleteButton = new Button("Löschen");
+		this.homeButton = new Button("Home");
 		
 		cantonViewLeft.add(this.lbName, 0, 0);
 		cantonViewLeft.add(this.txtName, 1, 0);
