@@ -22,7 +22,7 @@ public class CantonView {
 	
 	//elements in the GUI
 	protected ChoiceBox<Canton> cantonsDisplay;
-	protected Button creatButton, displayButton, editButton, deleteButton, homeButton, saveButton;
+	protected Button creatButton, displayButton, editButton, deleteButton, homeButton, addNewCanton, saveAndUpdateButton;
 	
 	protected BorderPane root, cantonView;
 	
@@ -41,10 +41,9 @@ public class CantonView {
 	protected final Image BLCARD = new Image("/BL_Karte.png");
 	protected ImageView cardBLView;
 	
-	protected static Scene scene1;
-	protected static Scene scene2;
+	protected  Scene scene1, scene2;
 	
-
+	
 	public CantonView(Stage stage, CantonModel model) {
 		this.model = model;
 		this.stage = stage;
@@ -124,17 +123,26 @@ public class CantonView {
 		this.txtaLanguage = new TextArea();
 		this.txtYear = new TextField();
 		
+		// TF können nicht geändert werden
+		this.txtName.setDisable(true);
+		this.txtAcronym.setDisable(true);
+		this.txtMainPlace.setDisable(true);
+		this.txtaLanguage.setDisable(true);
+		this.txtYear.setDisable(true);
+		
 		this.cardBLView = new ImageView(BLCARD);
 		
 		this.editButton = new Button("Bearbeiten");
-		this.saveButton = new Button("Speichern");
+		this.addNewCanton = new Button("Neu hinzufügen");
 		this.deleteButton = new Button("Löschen");
 		this.homeButton = new Button("Home");
+		this.saveAndUpdateButton = new Button("Speichern und Aktualisieren");
 		
 		this.homeButton.getStyleClass().add("buttonCanton");
 		this.editButton.getStyleClass().add("buttonCanton");
 		this.deleteButton.getStyleClass().add("buttonCanton");
-		this.saveButton.getStyleClass().add("buttonCanton");
+		this.addNewCanton.getStyleClass().add("buttonCanton");
+		this.saveAndUpdateButton.getStyleClass().add("buttonCanton");
 		
 		
 		cantonViewLeft.add(this.lbName, 0, 0);
@@ -168,6 +176,14 @@ public class CantonView {
 		this.txtaAttractions = new TextArea();
 		this.txtaNeighbor = new TextArea();
 		this.txtLink = new TextField();
+		
+		//TF are disable
+		
+		this.txtPopulation.setDisable(true);
+		this.txtSize.setDisable(true);
+		this.txtaAttractions.setDisable(true);
+		this.txtaNeighbor.setDisable(true);
+		this.txtLink.setDisable(true);
 				
 		this.cantonBLView = new ImageView(BLFLAG);
 				
@@ -182,8 +198,6 @@ public class CantonView {
 		cantonViewRight.add(this.txtaNeighbor, 1, 7);
 		cantonViewRight.add(this.lbLink, 0, 8);
 		cantonViewRight.add(this.txtLink, 1, 8);
-		//cantonViewRight.add(this.editButton, 1, 10);
-		//cantonViewRight.add(this.deleteButton, 0, 10);
 		
 		right.getChildren().add(cantonViewRight);
 		
@@ -199,7 +213,7 @@ public class CantonView {
 		
 		//BorderPane füllen
 		
-		toolbar.getItems().addAll(this.homeButton, this.editButton, this.deleteButton, this.saveButton);
+		toolbar.getItems().addAll(this.homeButton, this.editButton, this.deleteButton, this.addNewCanton, this.saveAndUpdateButton);
 		
 		cantonView.setTop(toolbar);
 		cantonView.setCenter(middle);
@@ -227,15 +241,55 @@ public class CantonView {
 		
 }
 	
-	public static void changeView() {
+	public void changeView() {
 		stage.setScene(scene2);
 		stage.show();
 		
 		
 	}
 
-	public static void backHome() {
+	public void backHome() {
 		stage.setScene(scene1);
 		stage.show();
+	}
+
+	public void updateCantonDisplay() {
+		for(Canton c : model.cantonsList) {
+			this.cantonsDisplay.getItems().addAll(c);
+		
+		}
+	}
+
+	public void setTF() {
+		this.txtName.setDisable(false);
+		this.txtAcronym.setDisable(false);
+		this.txtMainPlace.setDisable(false);
+		this.txtMainPlace.setDisable(false);
+		this.txtaLanguage.setDisable(false);
+		this.txtYear.setDisable(false);
+		
+		this.txtPopulation.setDisable(false);
+		this.txtSize.setDisable(false);
+		this.txtaAttractions.setDisable(false);
+		this.txtaNeighbor.setDisable(false);
+		this.txtLink.setDisable(false);
+		
+		
+	}
+	public void setTFDisable() {
+		this.txtName.setDisable(true);
+		this.txtAcronym.setDisable(true);
+		this.txtMainPlace.setDisable(true);
+		this.txtMainPlace.setDisable(true);
+		this.txtaLanguage.setDisable(true);
+		this.txtYear.setDisable(true);
+		
+		this.txtPopulation.setDisable(true);
+		this.txtSize.setDisable(true);
+		this.txtaAttractions.setDisable(true);
+		this.txtaNeighbor.setDisable(true);
+		this.txtLink.setDisable(true);
+		
+		
 	}
 }

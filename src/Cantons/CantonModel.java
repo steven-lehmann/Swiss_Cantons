@@ -12,7 +12,7 @@ public class CantonModel {
 
 	
 	
-	ArrayList<Canton> cantonsList = new ArrayList<Canton>();
+	protected ArrayList<Canton> cantonsList = new ArrayList<Canton>();
 	
 	
 	private Canton baselLand = new Canton(CantonsSwiss.BaselLand, acronym.BL, language.Deutsch, 288150, 1501);
@@ -29,27 +29,15 @@ public class CantonModel {
 	
 	
 	public Canton getCanton() {
-		//getter SetText Label
 		return cantonsList.get(cantonsList.size()-1);
 	}
 	
-	public void creatCanton(CantonsSwiss can, acronym acro, language lang, int year, int population) {
-		//getText from TField ->create new Canton -> add ArraayList
-		Canton cant = new Canton(can, acro, lang, year, population);
+	public void creatCanton(CantonsSwiss can, acronym acro, language lang, int population, int year) {
+		Canton cant = new Canton(can, acro, lang, population, year);
 		cantonsList.add(cant);
 	}
 	
-	public void editCanton() {
-		// edit just Population
-
-	}
-
-	public void deletCanton() {
-		// get Name from TextField (displayCanton) -> delet from ArrayList -> TextField ""
-	}
-
-
-	/*public int getSelectedCantonId(String name) {
+    public int getSelectedCantonId(String name) {
 		int id = 0;
 		for(Canton c : cantonsList) {
 			if(c.getName().contains(name)) {
@@ -57,5 +45,19 @@ public class CantonModel {
 			} 
 		}
 		return id;
-	}*/
+	}
+
+
+	public int getSelectedIndex(String name) {
+		int index = 0;
+		for(Canton c : cantonsList) {
+			if(c.getName().contains(name)) {
+				index = cantonsList.indexOf(c);
+			}
+		}
+		return index;
+		
+		
+	}
+
 }
