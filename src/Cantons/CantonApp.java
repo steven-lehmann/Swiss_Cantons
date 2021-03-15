@@ -12,11 +12,13 @@ public class CantonApp extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		model = new CantonModel();
+		model.addCantons();
+		
 		view = new CantonView(primaryStage, model);
+		
 		controller = new CantonController(model, view);
 		
 		view.start();
-
 	}
 
 	public static void main(String[] args) {

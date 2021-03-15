@@ -85,7 +85,7 @@ public class Canton {
 
 	@Override
 	public String toString() {
-		return "Kanton:" + this.name;
+		return "" + this.name;
 	}
 
 	

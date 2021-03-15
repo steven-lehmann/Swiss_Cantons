@@ -21,8 +21,8 @@ public class CantonView {
 	protected static Stage stage;
 	
 	//elements in the GUI
-	protected ChoiceBox<CantonsSwiss> cantonsDisplay;
-	protected Button creatButton, displayButton, editButton, deleteButton, homeButton;
+	protected ChoiceBox<Canton> cantonsDisplay;
+	protected Button creatButton, displayButton, editButton, deleteButton, homeButton, saveButton;
 	
 	protected BorderPane root, cantonView;
 	
@@ -55,7 +55,7 @@ public class CantonView {
 		VBox center = new VBox();
 		GridPane buttonGrid = new GridPane();
 				
-		this.cantonsDisplay = new ChoiceBox<CantonsSwiss>();
+		this.cantonsDisplay = new ChoiceBox<Canton>();
 
 		this.creatButton = new Button("Neu");
 		this.displayButton = new Button("Anzeigen");
@@ -69,8 +69,10 @@ public class CantonView {
 		this.lbHeading.getStyleClass().add("lbHeading");
 		this.lbTeaser.getStyleClass().add("lbTeaser");
 		
+		for(Canton c : model.cantonsList) {
+			this.cantonsDisplay.getItems().addAll(c);
+		}
 				
-		this.cantonsDisplay.getItems().addAll(CantonsSwiss.values());
 
 		this.cantonsDisplay.getStyleClass().add("choiceBox");
 				
@@ -125,12 +127,14 @@ public class CantonView {
 		this.cardBLView = new ImageView(BLCARD);
 		
 		this.editButton = new Button("Bearbeiten");
+		this.saveButton = new Button("Speichern");
 		this.deleteButton = new Button("Löschen");
 		this.homeButton = new Button("Home");
 		
 		this.homeButton.getStyleClass().add("buttonCanton");
 		this.editButton.getStyleClass().add("buttonCanton");
 		this.deleteButton.getStyleClass().add("buttonCanton");
+		this.saveButton.getStyleClass().add("buttonCanton");
 		
 		
 		cantonViewLeft.add(this.lbName, 0, 0);
@@ -195,7 +199,7 @@ public class CantonView {
 		
 		//BorderPane füllen
 		
-		toolbar.getItems().addAll(this.homeButton, this.editButton, this.deleteButton);
+		toolbar.getItems().addAll(this.homeButton, this.editButton, this.deleteButton, this.saveButton);
 		
 		cantonView.setTop(toolbar);
 		cantonView.setCenter(middle);
@@ -234,8 +238,4 @@ public class CantonView {
 		stage.setScene(scene1);
 		stage.show();
 	}
-
-		
-	
-
 }
