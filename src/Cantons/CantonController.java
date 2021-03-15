@@ -12,14 +12,12 @@ public class CantonController {
 	
 	private CantonView view;
 	private CantonModel model;
-	private Scanner scan;
 
 	public CantonController(CantonModel model, CantonView view) {
 		this.view = view;
 		this.model = model;
 		
 		//Anzeigen
-		
 		view.displayButton.setOnAction(this::display);
 		
 		// Hinzufügen
@@ -43,12 +41,6 @@ public class CantonController {
 		CantonsSwiss cantons = CantonsSwiss.valueOf(view.txtName.getText());
 		language languag = language.valueOf(view.txtaLanguage.getText());
 		acronym acro = acronym.valueOf(view.txtAcronym.getText());
-		/*String cantStr = view.txtName.getText();
-		CantonsSwiss cantons = CantonsSwiss.valueOf(cantStr);
-		String acrStr = view.txtAcronym.getText();
-		acronym acro = acronym.valueOf(acrStr);
-		String langStr = view.txtaLanguage.getText();
-		language languag = language.valueOf(langStr);*/
 		String yearStr = view.txtYear.getText();
 		int year = Integer.parseInt(yearStr);
 		String popStr = view.txtPopulation.getText();
@@ -79,13 +71,16 @@ public class CantonController {
 		Canton canton = view.cantonsDisplay.getSelectionModel().getSelectedItem();
 		CantonView.changeView();
 		this.updateView(canton);
+		
 	}
 	
 	public void edit(ActionEvent e) {
-		//model.editCanton();
+		
 	}
 	public void delete(ActionEvent e) {
-		//model.deletCanton();
+		/*String name = view.txtName.getText();
+		model.cantonsList.remove(model.getSelectedCantonId(name)-1);
+		this.updateView(null);*/
 	}
 	
 	public void home(ActionEvent e) {

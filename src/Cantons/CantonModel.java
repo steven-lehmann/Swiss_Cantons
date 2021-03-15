@@ -47,5 +47,15 @@ public class CantonModel {
 	public void deletCanton() {
 		// get Name from TextField (displayCanton) -> delet from ArrayList -> TextField ""
 	}
-	
+
+
+	/*public int getSelectedCantonId(String name) {
+		int id = 0;
+		for(Canton c : cantonsList) {
+			if(c.getName().contains(name)) {
+				id = c.getID();
+			} 
+		}
+		return id;
+	}*/
 }
