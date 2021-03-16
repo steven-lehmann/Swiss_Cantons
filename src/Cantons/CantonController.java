@@ -112,12 +112,14 @@ public class CantonController {
 		Canton cant = model.cantonsList.get(index);
 		String yearNew = view.txtYear.getText();
 		String popNew = view.txtPopulation.getText();
-		String attractionNew = view.txtPopulation.getText();
-		String linkNew = view.txtPopulation.getText();
+		String attractionNew = view.txtaAttractions.getText();
+		String linkNew = view.txtLink.getText();
 		int popInt = Integer.parseInt(popNew);
 		int yearInt = Integer.parseInt(yearNew);
 		cant.setYear(yearInt);
 		cant.setPopulation(popInt);
+		cant.setAttractions(attractionNew);
+		cant.setLink(linkNew);
 		view.saveAndUpdateButton.setDisable(true);
 		view.deleteButton.setDisable(false);
 		view.txtPopulation.setDisable(true);
