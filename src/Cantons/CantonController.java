@@ -74,6 +74,7 @@ public class CantonController {
 		view.changeView();
 		Canton canton = view.cantonsDisplay.getSelectionModel().getSelectedItem();
 		this.updateView(canton);
+		view.updateImage(canton);
 		view.addNewCanton.setDisable(true);
 		view.saveAndUpdateButton.setDisable(true);
 		
@@ -81,6 +82,7 @@ public class CantonController {
 	
 	public void edit(ActionEvent e) {
 		view.txtPopulation.setDisable(false);
+		view.txtYear.setDisable(false);
 		view.saveAndUpdateButton.setDisable(false);
 		view.deleteButton.setDisable(true);
 	
@@ -90,12 +92,16 @@ public class CantonController {
 		String name = view.txtName.getText();
 		int index = model.getSelectedIndex(name);
 		Canton cant = model.cantonsList.get(index);
+		String yearNew = view.txtYear.getText();
 		String popNew = view.txtPopulation.getText();
 		int popInt = Integer.parseInt(popNew);
+		int yearInt = Integer.parseInt(yearNew);
+		cant.setYear(yearInt);
 		cant.setPopulation(popInt);
 		view.saveAndUpdateButton.setDisable(true);
 		view.deleteButton.setDisable(false);
 		view.txtPopulation.setDisable(true);
+		view.txtYear.setDisable(true);
 	}
 	
 
@@ -105,6 +111,7 @@ public class CantonController {
 		this.updateView(null);
 		view.cantonsDisplay.getItems().clear();
 		view.updateCantonDisplay();
+		view.flagView.setImage(null);
 			
 	}
 	
@@ -117,6 +124,7 @@ public class CantonController {
 	}
 
 	private void add(ActionEvent actionevent1) {
+		view.flagView.setImage(null);
 		view.changeView();
 		view.setTF();
 		this.updateView(null);

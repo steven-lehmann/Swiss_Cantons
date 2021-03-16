@@ -36,7 +36,9 @@ public class CantonView {
 	protected TextArea txtaLanguage, txtaAttractions, txtaNeighbor;
 	
 	protected final Image BLFLAG = new Image("/BL_Flagge.png");
-	protected ImageView cantonBLView;
+	protected final Image BEFLAG = new Image("/BE_Flagge.png");
+	protected final Image ZHFLAG = new Image("/ZH_Flagge.jpeg");
+	protected ImageView flagView;
 	
 	protected final Image BLCARD = new Image("/BL_Karte.png");
 	protected ImageView cardBLView;
@@ -185,9 +187,9 @@ public class CantonView {
 		this.txtaNeighbor.setDisable(true);
 		this.txtLink.setDisable(true);
 				
-		this.cantonBLView = new ImageView(BLFLAG);
+		this.flagView = new ImageView(BLFLAG);
 				
-		cantonViewRight.add(this.cantonBLView, 0, 0, 2, 4);
+		cantonViewRight.add(this.flagView, 0, 0, 2, 4);
 		cantonViewRight.add(this.lbPopulation, 0, 4);
 		cantonViewRight.add(this.txtPopulation, 1, 4);
 		cantonViewRight.add(this.lbSize, 0, 5);
@@ -231,8 +233,8 @@ public class CantonView {
 		this.cardBLView.setFitHeight(300);
 		this.cardBLView.setFitWidth(450);
 			
-		this.cantonBLView.setFitHeight(150);
-		this.cantonBLView.setFitWidth(120);
+		this.flagView.setFitHeight(150);
+		this.flagView.setFitWidth(120);
 		
 	}
 
@@ -292,4 +294,21 @@ public class CantonView {
 		
 		
 	}
+
+	public void updateImage(Canton canton) {
+		if(canton.getName() == CantonsSwiss.BaselLand) {
+			flagView.setImage(BLFLAG);
+		}
+		if(canton.getName() == CantonsSwiss.Bern) {
+			flagView.setImage(BEFLAG);
+		}
+		if(canton.getName() == CantonsSwiss.Zürich) {
+			flagView.setImage(ZHFLAG);
+		}
+		if(canton.getName() == null) {
+			flagView.setImage(null);
+		}
+	}
+		
+	
 }

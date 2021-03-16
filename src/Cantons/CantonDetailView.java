@@ -40,6 +40,7 @@ public class CantonDetailView {
 	protected TextArea txtaLanguage, txtaAttractions, txtaNeighbor;
 	
 	protected final Image BLFLAG = new Image("/BL_Flagge.png");
+	protected final Image BEFLAG = new Image("/BE.png");
 	protected ImageView cantonBLView;
 	
 	protected final Image BLCARD = new Image("/BL_Karte.png");
@@ -113,7 +114,7 @@ public class CantonDetailView {
 		this.txtaNeighbor = new TextArea();
 		this.txtLink = new TextField();
 				
-		this.cantonBLView = new ImageView(BLFLAG);
+		this.cantonBLView = new ImageView(BEFLAG);
 				
 		cantonViewRight.add(this.cantonBLView, 0, 0, 2, 4);
 		cantonViewRight.add(this.lbPopulation, 0, 4);
