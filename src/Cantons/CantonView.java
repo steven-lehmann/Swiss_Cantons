@@ -22,13 +22,14 @@ public class CantonView {
 	
 	//elements in the GUI
 	protected ChoiceBox<Canton> cantonsDisplay;
-	protected Button creatButton, displayButton, editButton, deleteButton, homeButton, addNewCanton, saveAndUpdateButton;
+	protected Button creatButton, displayButton, editButton, deleteButton, homeButton,
+			addNewCanton, saveAndUpdateButton;
 	
 	protected BorderPane root, cantonView;
 	
 	protected Label lbHeading, lbTeaser, lbNewCanton, lbViewCanton, lbUpdateCanton,
 			lbDeleteCanton, lbName, lbSize, lbPopulation, lbAcronym, lbYear, lbLanguage,
-			lbMainPlace, lbNeighbor, lbLink, lbAttractions;
+			lbMainPlace, lbNeighbor, lbLink, lbAttractions, lbPflichtfeld;
 	
 	protected TextField txtName, txtSize, txtPopulation, txtAcronym, txtYear, 
 			 txtMainPlace, txtLink;
@@ -113,11 +114,11 @@ public class CantonView {
 				
 		//Linke Spalte
 				
-		this.lbName = new Label("Name: ");
-		this.lbAcronym = new Label("Kürzel: ");
-		this.lbMainPlace = new Label("Hauptort: ");
-		this.lbLanguage = new Label("Sprache: ");
-		this.lbYear = new Label("Beitrittsjahr: ");
+		this.lbName = new Label("Name:* ");
+		this.lbAcronym = new Label("Kürzel:* ");
+		this.lbMainPlace = new Label("Hauptort:* ");
+		this.lbLanguage = new Label("Sprache:* ");
+		this.lbYear = new Label("Beitrittsjahr:* ");
 		
 		this.txtName = new TextField();
 		this.txtAcronym = new TextField();
@@ -140,7 +141,7 @@ public class CantonView {
 		this.homeButton = new Button("Home");
 		this.saveAndUpdateButton = new Button("Speichern und Aktualisieren");
 		
-		this.homeButton.getStyleClass().add("buttonCanton");
+		this.homeButton.getStyleClass().add("buttonHome");
 		this.editButton.getStyleClass().add("buttonCanton");
 		this.deleteButton.getStyleClass().add("buttonCanton");
 		this.addNewCanton.getStyleClass().add("buttonCanton");
@@ -167,11 +168,12 @@ public class CantonView {
 		
 		//Rechte Spalte
 		
-		this.lbPopulation = new Label("Bevölkerung: ");
-		this.lbSize = new Label("Fläche: ");
-		this.lbAttractions = new Label("Sehenswürdigkeiten: ");
-		this.lbNeighbor = new Label("Nachbarkantone: ");
-		this.lbLink = new Label("Link: ");
+		this.lbPopulation = new Label("Bevölkerung:* ");
+		this.lbSize = new Label("Fläche:* ");
+		this.lbAttractions = new Label("Sehenswürdigkeiten:* ");
+		this.lbNeighbor = new Label("Nachbarkantone:* ");
+		this.lbLink = new Label("Link:* ");
+		this.lbPflichtfeld = new Label("* = Pflichtfelder");
 		
 		this.txtPopulation = new TextField();
 		this.txtSize = new TextField();
@@ -200,6 +202,7 @@ public class CantonView {
 		cantonViewRight.add(this.txtaNeighbor, 1, 7);
 		cantonViewRight.add(this.lbLink, 0, 8);
 		cantonViewRight.add(this.txtLink, 1, 8);
+		cantonViewRight.add(this.lbPflichtfeld, 1, 9);
 		
 		right.getChildren().add(cantonViewRight);
 		

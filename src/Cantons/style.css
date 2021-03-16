@@ -71,6 +71,19 @@
 	    -fx-font-size: 12px;
 }
 
+.buttonHome{
+	 -fx-background-color: 
+		 	#000000,
+	        linear-gradient(#abd6f5, #5ab7fa),
+	        linear-gradient(#91c5eb, #5aade8),
+	        linear-gradient(#7bb3db, #60a2d1);
+	    -fx-background-insets: 0,1,2,3;
+	    -fx-background-radius: 3,2,2,2;
+	    -fx-padding: 10 30 10 30;
+	    -fx-text-fill: white;
+	    -fx-font-size: 12px;
+}
+
 .toolbar{
 	 -fx-background-color: 
 		   #000000,

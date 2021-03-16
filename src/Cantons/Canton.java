@@ -8,7 +8,7 @@ public class Canton {
 		NE, NW, OW, SG, 
 		SH, SZ, SO, TI, 
 		TG, UR, VD, VS, 
-		ZH,ZG};
+		ZH, ZG};
 		
 	public enum language{Deutsch, Franzöisch,
 		Italienisch, Rätoromanisch};
