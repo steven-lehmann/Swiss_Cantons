@@ -36,7 +36,7 @@ public class CantonController {
 		view.addNewCanton.setOnAction(this::addNewCanton);
 		
 		//speichern und aktualisieren
-		view.saveAndUpdateButton.setOnAction(this::updatePopulation);
+		view.saveAndUpdateButton.setOnAction(this::updateFields);
 	
 	}
 	
@@ -83,17 +83,21 @@ public class CantonController {
 	public void edit(ActionEvent e) {
 		view.txtPopulation.setDisable(false);
 		view.txtYear.setDisable(false);
+		view.txtaAttractions.setDisable(false);
+		view.txtLink.setDisable(false);
 		view.saveAndUpdateButton.setDisable(false);
 		view.deleteButton.setDisable(true);
 	
 	}
 	
-	public void updatePopulation(ActionEvent e) {
+	public void updateFields(ActionEvent e) {
 		String name = view.txtName.getText();
 		int index = model.getSelectedIndex(name);
 		Canton cant = model.cantonsList.get(index);
 		String yearNew = view.txtYear.getText();
 		String popNew = view.txtPopulation.getText();
+		String attractionNew = view.txtPopulation.getText();
+		String linkNew = view.txtPopulation.getText();
 		int popInt = Integer.parseInt(popNew);
 		int yearInt = Integer.parseInt(yearNew);
 		cant.setYear(yearInt);
@@ -102,6 +106,8 @@ public class CantonController {
 		view.deleteButton.setDisable(false);
 		view.txtPopulation.setDisable(true);
 		view.txtYear.setDisable(true);
+		view.txtaAttractions.setDisable(true);
+		view.txtLink.setDisable(true);
 	}
 	
 

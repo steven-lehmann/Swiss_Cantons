@@ -42,7 +42,9 @@ public class CantonView {
 	protected ImageView flagView;
 	
 	protected final Image BLCARD = new Image("/BL_Karte.png");
-	protected ImageView cardBLView;
+	protected final Image BECARD = new Image("/BE_Karte.png");
+	protected final Image ZHCARD = new Image("/ZH_Karte.png");
+	protected ImageView cardView;
 	
 	protected  Scene scene1, scene2;
 	
@@ -133,7 +135,7 @@ public class CantonView {
 		this.txtaLanguage.setDisable(true);
 		this.txtYear.setDisable(true);
 		
-		this.cardBLView = new ImageView(BLCARD);
+		this.cardView = new ImageView(BLCARD);
 		
 		this.editButton = new Button("Bearbeiten");
 		this.addNewCanton = new Button("Neu hinzufügen");
@@ -158,7 +160,7 @@ public class CantonView {
 		cantonViewLeft.add(this.txtaLanguage, 1, 3);
 		cantonViewLeft.add(this.lbYear, 0, 4);
 		cantonViewLeft.add(this.txtYear, 1, 4);
-		cantonViewLeft.add(this.cardBLView, 0, 5, 3, 5);
+		cantonViewLeft.add(this.cardView, 0, 5, 3, 5);
 		
 		left.getChildren().add(cantonViewLeft);
 		
@@ -209,6 +211,8 @@ public class CantonView {
 		right.getStyleClass().add("right");
 		
 		cantonViewRight.getStyleClass().add("cantonViewRight");
+		this.flagView.getStyleClass().add("flagView");
+		
 		
 		//HBox füllen
 		
@@ -233,8 +237,8 @@ public class CantonView {
 		scene2 = new Scene(cantonView);
 		scene2.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 		
-		this.cardBLView.setFitHeight(300);
-		this.cardBLView.setFitWidth(450);
+		this.cardView.setFitHeight(300);
+		this.cardView.setFitWidth(450);
 			
 		this.flagView.setFitHeight(150);
 		this.flagView.setFitWidth(120);
@@ -301,12 +305,15 @@ public class CantonView {
 	public void updateImage(Canton canton) {
 		if(canton.getName() == CantonsSwiss.BaselLand) {
 			flagView.setImage(BLFLAG);
+			cardView.setImage(BLCARD);
 		}
 		if(canton.getName() == CantonsSwiss.Bern) {
 			flagView.setImage(BEFLAG);
+			cardView.setImage(BECARD);
 		}
 		if(canton.getName() == CantonsSwiss.Zürich) {
 			flagView.setImage(ZHFLAG);
+			cardView.setImage(ZHCARD);
 		}
 		if(canton.getName() == null) {
 			flagView.setImage(null);
