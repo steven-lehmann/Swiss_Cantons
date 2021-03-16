@@ -43,12 +43,18 @@ public class CantonController {
 	public void addNewCanton(ActionEvent e) {
 		CantonsSwiss cantons = CantonsSwiss.valueOf(view.txtName.getText());
 		language languag = language.valueOf(view.txtaLanguage.getText());
+		String mainPlace = view.txtMainPlace.getText();
 		acronym acro = acronym.valueOf(view.txtAcronym.getText());
 		String yearStr = view.txtYear.getText();
 		int year = Integer.parseInt(yearStr);
 		String popStr = view.txtPopulation.getText();
 		int population = Integer.parseInt(popStr);
-	    model.creatCanton(cantons, acro, languag, population, year);
+		String size = view.txtSize.getText();
+		int sizeInt = Integer.parseInt(size);
+		String attractions = view.txtaAttractions.getText();
+		String neighbour = view.txtaNeighbor.getText();
+		String link = view.txtLink.getText();
+	    model.creatCanton(cantons, acro, mainPlace, languag, population, year, sizeInt, attractions, neighbour,link);
 		updateView(model.getCanton());
 		view.cantonsDisplay.getItems().add(model.getCanton());
 		view.setTFDisable();
@@ -58,15 +64,25 @@ public class CantonController {
 		if (canton != null) {
 			view.txtName.setText(canton.getName().name());
 			view.txtAcronym.setText(canton.getAcronym().name());
+			view.txtMainPlace.setText(canton.getMainPlace());
 			view.txtaLanguage.setText(canton.getLanguage().name());
 			view.txtYear.setText(Integer.toString(canton.getYear()));
 			view.txtPopulation.setText(Integer.toString(canton.getPopulation()));
+			view.txtSize.setText(Integer.toString(canton.getSize()));
+			view.txtaAttractions.setText(canton.getAttractions());
+			view.txtaNeighbor.setText(canton.getNeighbour());
+			view.txtLink.setText(canton.getLink());
 		} else {
 			view.txtName.setText("");
 			view.txtAcronym.setText("");
-			view.txtYear.setText("");
+			view.txtMainPlace.setText("");
 			view.txtaLanguage.setText("");
+			view.txtYear.setText("");
 			view.txtPopulation.setText("");
+			view.txtSize.setText("");
+			view.txtaAttractions.setText("");
+			view.txtaNeighbor.setText("");
+			view.txtLink.setText("");
 		}
 	}
 
