@@ -10,7 +10,7 @@ public class Canton {
 		TG, UR, VD, VS, 
 		ZH, ZG};
 		
-	public enum language{Deutsch, Franzöisch,
+	public enum language{Deutsch, Französisch,
 		Italienisch, Rätoromanisch};
 		
 	private static int IDNr = 0;
@@ -18,6 +18,11 @@ public class Canton {
 	private CantonsSwiss name;
 	private acronym acronym;
 	private language language;
+	private String mainPlace;
+	private String attractions;
+	private String neighbour;
+	private String link;
+	private int size;
 	private int year;
 	private int population;
 	private final int ID;
@@ -25,18 +30,20 @@ public class Canton {
 	private static int getNextID() {
 		return ++IDNr;
 	}
-
 	
-	
-	public Canton(CantonsSwiss name, acronym acronym, language language, int population, int year) {
+	public Canton(CantonsSwiss name, acronym acronym, String mainPlace, language language, int population, 
+			int year, int size, String attractions, String neighbour, String link) {
 		this.ID = getNextID();
 		this.name = name;
 		this.acronym = acronym;
+		this.mainPlace = mainPlace;
 		this.language = language;
 		this.population = population;
 		this.year = year;
-		
-		
+		this.size = size;
+		this.attractions = attractions;
+		this.neighbour = neighbour;
+		this.link = link;
 	}
 
 	public CantonsSwiss getName() {
@@ -83,6 +90,66 @@ public class Canton {
 		return ID;
 	}
 	
+	
+	public String getMainPlace() {
+		return mainPlace;
+	}
+
+
+
+	public void setMainPlace(String mainPlace) {
+		this.mainPlace = mainPlace;
+	}
+
+
+
+	public String getAttractions() {
+		return attractions;
+	}
+
+
+
+	public void setAttractions(String attractions) {
+		this.attractions = attractions;
+	}
+
+
+
+	public String getNeighbour() {
+		return neighbour;
+	}
+
+
+
+	public void setNeighbour(String neighbour) {
+		this.neighbour = neighbour;
+	}
+
+
+
+	public String getLink() {
+		return link;
+	}
+
+
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+
+
+	public int getSize() {
+		return size;
+	}
+
+
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+
 
 	@Override
 	public String toString() {
