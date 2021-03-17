@@ -5,6 +5,8 @@ package Cantons;
 import Cantons.Canton.acronym;
 import Cantons.Canton.language;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 
 
@@ -41,6 +43,7 @@ public class CantonController {
 	}
 	
 	public void addNewCanton(ActionEvent e) {
+		try {
 		CantonsSwiss cantons = CantonsSwiss.valueOf(view.txtName.getText());
 		language languag = language.valueOf(view.txtaLanguage.getText());
 		String mainPlace = view.txtMainPlace.getText();
@@ -58,6 +61,14 @@ public class CantonController {
 		updateView(model.getCanton());
 		view.cantonsDisplay.getItems().add(model.getCanton());
 		view.setTFDisable();
+		
+		}catch(IllegalArgumentException error){
+			Alert errorAlert = new Alert(AlertType.ERROR);
+			errorAlert.setHeaderText("Input not valid");
+			errorAlert.setContentText("Bitte alle Pflichtfelder korrekt ausfüllen!");
+			errorAlert.showAndWait();
+
+		}
 	}
 	
 	private void updateView(Canton canton) {
@@ -149,6 +160,7 @@ public class CantonController {
 
 	private void add(ActionEvent actionevent1) {
 		view.flagView.setImage(null);
+		view.cardView.setImage(null);
 		view.changeView();
 		view.setTF();
 		this.updateView(null);

@@ -17,7 +17,7 @@ public class CantonModel {
 	
 	private Canton baselLand = new Canton(CantonsSwiss.BaselLand, acronym.BL, "Liestal", language.Deutsch, 288150, 1501, 518, "Angenstein, Augusta Raurica", "Aargau, BaselStadt", "https://www.baselland.ch/");
 	private Canton zürich = new Canton(CantonsSwiss.Zürich, acronym.ZH, "Zürich", language.Deutsch, 1521000, 1351, 1729, "Zürichsee, Nationalmuseum", "Schaffhausen, Aargau, Zug,  Schwyz, StGallen, Thurgau", "https://www.zh.ch/");
-	private Canton bern = new Canton(CantonsSwiss.Bern, acronym.BE, "Bern", language.Deutsch, 1035000, 1353, 5959, "Bundeshaus, Rosengarten, Zytglogge", "Jura, Solothurn, Aargau, Neuenburd, Waadt, Freiburg, Luzern, Nidwalden, Obwalden, uRI, Wallis", "https://www.bern.ch/");
+	private Canton bern = new Canton(CantonsSwiss.Bern, acronym.BE, "Bern", language.Deutsch, 1035000, 1353, 5959, "Bundeshaus, Rosengarten, Zytglogge", "Jura, Solothurn, Aargau, Neuenburd, Waadt,Freiburg, Luzern,  Nidwalden, \nObwalden, Uri, Wallis", "https://www.bern.ch/");
 	
 	
 	
