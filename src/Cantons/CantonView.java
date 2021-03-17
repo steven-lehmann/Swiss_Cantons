@@ -211,7 +211,6 @@ public class CantonView {
 		right.getStyleClass().add("right");
 		
 		cantonViewRight.getStyleClass().add("cantonViewRight");
-		this.flagView.getStyleClass().add("flagView");
 		
 		
 		//HBox füllen
@@ -317,6 +316,7 @@ public class CantonView {
 		}
 		if(canton.getName() == null) {
 			flagView.setImage(null);
+			cardView.setImage(null);
 		}
 	}
 		
