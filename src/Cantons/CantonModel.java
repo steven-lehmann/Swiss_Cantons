@@ -2,12 +2,6 @@ package Cantons;
 
 import java.util.ArrayList;
 
-
-import Cantons.Canton.acronym;
-import Cantons.Canton.language;
-
-
-
 public class CantonModel {
 
 	

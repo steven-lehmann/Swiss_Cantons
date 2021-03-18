@@ -1,9 +1,6 @@
 package Cantons;
 
 
-
-import Cantons.Canton.acronym;
-import Cantons.Canton.language;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -19,8 +16,15 @@ public class CantonController {
 		this.view = view;
 		this.model = model;
 		
-		
-		
+		view.txtName.textProperty().addListener(
+				(observable, oldValue, newValue) -> validateName(newValue));
+		view.txtYear.textProperty().addListener(
+				(observable, oldValue, newValue) -> validateInt(newValue));
+		view.txtaLanguage.textProperty().addListener(
+				(observable, oldValue, newValue) -> validateLanguage(newValue));
+		view.txtAcronym.textProperty().addListener(
+				(observable, oldValue, newValue) -> validateAcronym(newValue));
+
 		//Anzeigen
 		view.displayButton.setOnAction(this::display);
 		
@@ -171,5 +175,73 @@ public class CantonController {
 		
 	}
 	
-
+	private void validateName(String newValue) {
+		boolean valid = false;
+		CantonsSwiss[] cantons = CantonsSwiss.values();
+		for(CantonsSwiss c : cantons) {
+			if(c.equals(newValue)) {
+				valid = true;
+			}
+		}
+		
+		view.txtName.getStyleClass().remove("inputNotOk");
+		view.txtName.getStyleClass().remove("inputOk");
+		if (valid) {
+			view.txtName.getStyleClass().add("inputOk");
+		} else {
+			view.txtName.getStyleClass().add("inputNotOk");
+		}
+	}
+	
+	private void validateLanguage(String newValue) {
+		boolean valid = false;
+		language[] lang = language.values();
+		for(language l : lang) {
+			if(l.equals(newValue)) {
+				valid = true;
+			}
+		}
+		
+		view.txtaLanguage.getStyleClass().remove("inputNotOk");
+		view.txtaLanguage.getStyleClass().remove("inputOk");
+		if (valid) {
+			view.txtaLanguage.getStyleClass().add("inputOk");
+		} else {
+			view.txtaLanguage.getStyleClass().add("inputNotOk");
+		}
+	}
+	
+	private void validateAcronym(String newValue) {
+		boolean valid = false;
+		acronym[] acro = acronym.values();
+		for(acronym a : acro) {
+			if(a.equals(newValue)) {
+				valid = true;
+			}
+		}
+		
+		view.txtAcronym.getStyleClass().remove("inputNotOk");
+		view.txtAcronym.getStyleClass().remove("inputOk");
+		if (valid) {
+			view.txtAcronym.getStyleClass().add("inputOk");
+		} else {
+			view.txtAcronym.getStyleClass().add("inputNotOk");
+		}
+	}
+	
+	private void validateInt(String newValue) {
+		boolean validInt = false;
+		
+		if(newValue.length() >= 2 && newValue.length() < 5) {
+			validInt = true;
+		}
+		
+		view.txtYear.getStyleClass().remove("inputNotOk");
+		view.txtYear.getStyleClass().remove("inputOk");
+		if (validInt) {
+			view.txtYear.getStyleClass().add("inputOk");
+		} else {
+			view.txtYear.getStyleClass().add("inputNotOk");
+		}
+	}
 }

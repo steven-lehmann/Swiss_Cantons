@@ -99,3 +99,11 @@
 	-fx-pref-width: 120px;
 }
 
+.inputOk {
+  -fx-text-fill: green;
+}
+
+.inputNotOk {
+  -fx-text-fill: red;
+}
+

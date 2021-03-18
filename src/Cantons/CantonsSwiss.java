@@ -12,4 +12,8 @@ public enum CantonsSwiss {
 		return (this.name().contains(searchString));
 	}
 	
+	public boolean equals(String searchString) {
+		return (this.name().equals(searchString));
+	}
+	
 }

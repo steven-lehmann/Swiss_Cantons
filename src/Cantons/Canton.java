@@ -1,17 +1,6 @@
 package Cantons;
 
 public class Canton {
-	
-	public enum acronym{AG, AR, AI, BL, 
-		BS, BE, FR, GE, 
-		GL, GR, JU, LU, 
-		NE, NW, OW, SG, 
-		SH, SZ, SO, TI, 
-		TG, UR, VD, VS, 
-		ZH, ZG};
-		
-	public enum language{Deutsch, Französisch,
-		Italienisch, Rätoromanisch};
 		
 	private static int IDNr = 0;
 	
