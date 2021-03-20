@@ -108,6 +108,10 @@ public class CantonController {
 		view.updateImage(canton);
 		view.addNewCanton.setDisable(true);
 		view.saveAndUpdateButton.setDisable(true);
+		view.txtName.getStyleClass().remove("inputOk");
+		view.txtYear.getStyleClass().remove("inputOk");
+		view.txtAcronym.getStyleClass().remove("inputOk");
+		view.txtaLanguage.getStyleClass().remove("inputOk");
 		
 	}
 	
@@ -141,6 +145,10 @@ public class CantonController {
 		view.txtYear.setDisable(true);
 		view.txtaAttractions.setDisable(true);
 		view.txtLink.setDisable(true);
+		view.txtName.getStyleClass().remove("inputOk");
+		view.txtYear.getStyleClass().remove("inputOk");
+		view.txtAcronym.getStyleClass().remove("inputOk");
+		view.txtaLanguage.getStyleClass().remove("inputOk");
 	}
 	
 
