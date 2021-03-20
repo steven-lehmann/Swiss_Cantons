@@ -46,7 +46,7 @@ public class CantonController {
 	
 	}
 	
-	public void addNewCanton(ActionEvent e) {
+	public void addNewCanton(ActionEvent e) throws NumberFormatException {
 		try {
 		CantonsSwiss cantons = CantonsSwiss.valueOf(view.txtName.getText());
 		language languag = language.valueOf(view.txtaLanguage.getText());
@@ -126,6 +126,7 @@ public class CantonController {
 	}
 	
 	public void updateFields(ActionEvent e) {
+		try {
 		String name = view.txtName.getText();
 		int index = model.getSelectedIndex(name);
 		Canton cant = model.cantonsList.get(index);
@@ -145,10 +146,19 @@ public class CantonController {
 		view.txtYear.setDisable(true);
 		view.txtaAttractions.setDisable(true);
 		view.txtLink.setDisable(true);
+<<<<<<< HEAD
 		view.txtName.getStyleClass().remove("inputOk");
 		view.txtYear.getStyleClass().remove("inputOk");
 		view.txtAcronym.getStyleClass().remove("inputOk");
 		view.txtaLanguage.getStyleClass().remove("inputOk");
+=======
+		}catch(NumberFormatException error) {
+			Alert errorAlert = new Alert(AlertType.ERROR);
+			errorAlert.setHeaderText("Input not valid");
+			errorAlert.setContentText("Bevölkerung und Beitrittsjahr müssen Integer Werte sein!");
+			errorAlert.showAndWait();
+		}
+>>>>>>> branch 'main' of https://github.com/steven-lehmann/Swiss_Cantons.git
 	}
 	
 
